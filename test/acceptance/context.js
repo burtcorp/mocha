@@ -51,8 +51,8 @@ describe('Context Siblings', function(){
       this.visibleFromTestSibling = 'Visible from test sibling';
     })
 
-    it('should allow test siblings to modify shared context', function(){
-      'Visible from test sibling'.should.eql(this.visibleFromTestSibling);
+    it('should not allow test siblings to modify shared context', function(){
+      (typeof this.visibleFromTestSibling).should.equal('undefined');
     })
 
     it('should have reset this.calls before describe', function(){
